@@ -1,3 +1,4 @@
+package game.resources;
 import java.util.HashMap;
 
 public class QuizQuestions {

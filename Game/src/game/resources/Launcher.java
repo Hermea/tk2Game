@@ -1,3 +1,4 @@
+package game.resources;
 
 public class Launcher {
 
