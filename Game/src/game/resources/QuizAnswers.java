@@ -21,4 +21,9 @@ public class QuizAnswers {
 		return statBoost;
 	}
 
+	@Override
+	public String toString() {
+		return answerText; 
+	}
+
 }

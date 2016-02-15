@@ -14,13 +14,19 @@ public class MainCharacterQuizTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		quiz = new MainCharacterQuiz();
+		
 	}
 
 	@Test
 	public void test() {
+		quiz = new MainCharacterQuiz();
 		survey = quiz.getCharacterQuiz();
-		survey.get(0);
+		QuizQuestions q1 = (QuizQuestions) survey.get(0);
+		System.out.println(q1.getQuestionText());
+		for(int i=1; i < 5; i++) {
+			String i1 = String.valueOf(i);
+			System.out.println(q1.getAnswerOptions().get(i1).toString());
+		}
 	}
 
 }
