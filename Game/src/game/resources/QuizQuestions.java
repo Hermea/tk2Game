@@ -4,9 +4,9 @@ import java.util.HashMap;
 public class QuizQuestions {
 // REFACTOR ANSWERS YOU FUCKER!
 	private String questionText;
-	private HashMap<String, Object> answerOptions;
+	private HashMap<String, String> answerOptions;
 	
-	public QuizQuestions(String questionText, HashMap<String, Object> answerOptions){
+	public QuizQuestions(String questionText, HashMap<String, String> answerOptions){
 		setQuestionText(questionText);
 		setAnswerOptions(answerOptions);
 	}
@@ -19,11 +19,11 @@ public class QuizQuestions {
 		this.questionText = questionText;
 	}
 
-	public HashMap<String, Object> getAnswerOptions() {
+	public HashMap<String, String> getAnswerOptions() {
 		return answerOptions;
 	}
 
-	public void setAnswerOptions(HashMap<String, Object> answerOptions) {
+	public void setAnswerOptions(HashMap<String, String> answerOptions) {
 		this.answerOptions = answerOptions;
 	}
 

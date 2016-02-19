@@ -21,7 +21,7 @@ public class MainMenu extends JFrame {
 		panel.add(jbtE);
 		panel.add(jbtRQ);
 		add(panel);
-		
+
 		ButtonListener listener = new ButtonListener();
 		jbtC.addActionListener(listener);
 		jbtNG.addActionListener(listener);
