@@ -1,12 +1,15 @@
 package game.resources;
 
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class MainMenu extends JFrame {
@@ -24,6 +27,7 @@ public class MainMenu extends JFrame {
 	private JPanel panel = new JPanel();
 	private Character main;
 	private ButtonListener listener = new ButtonListener();
+	private MainCharacterQuiz quiz = new MainCharacterQuiz();
 
 	public MainMenu() {
 		panel.add(myOutput);
@@ -104,7 +108,7 @@ public class MainMenu extends JFrame {
 					add(panel);
 				} else {
 					main = new Character(getFirstNameText, getLastNameText, true, 10, 10, 10, 10, "Main");
-					myOutput.setText(getFirstNameText + " " + getLastNameText);
+					myOutput.setText(quiz.getCharacterQuiz().toString());
 					panel.remove(enterNameButton);
 					panel.remove(firstName);
 					panel.remove(lastName);

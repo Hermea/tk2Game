@@ -3,6 +3,8 @@ package game.resources;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.swing.JLabel;
+
 public class MainCharacterQuiz {
 
 	private ArrayList<Object> characterQuiz = new ArrayList<Object>();

@@ -2,7 +2,7 @@ package game.resources;
 import java.util.HashMap;
 
 public class QuizQuestions {
-// REFACTOR ANSWERS YOU FUCKER!
+
 	private String questionText;
 	private HashMap<String, String> answerOptions;
 	
@@ -26,5 +26,11 @@ public class QuizQuestions {
 	public void setAnswerOptions(HashMap<String, String> answerOptions) {
 		this.answerOptions = answerOptions;
 	}
+
+	@Override
+	public String toString() {
+		return "\n" + questionText + "\n" + answerOptions;
+	}
+	
 
 }
