@@ -92,11 +92,8 @@ public class Character {
 	}
 
 	public void setSpecialAbility(String specialAbility) {
-		if (specialAbility.equals(SpecialAbility.values())) {
+		
 			this.specialAbility = specialAbility;
-		} else {
-			this.specialAbility = "None";
-		}
 	}
 
 }
