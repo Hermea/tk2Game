@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 public class Launcher {
 
  public static void main(String[] args) {
-  Character Claire = new Character("Claire", "Ellis", true, 10, 10, 45, 40, "Hacking");
+  Character Claire = new Character("Claire", "Ellis", true, 10, 5, 45, 40, "Hacking");
   Character Brendon = new Character("Brendon", "Felkins", false, 8, 40, 20, 32, "");
   Character Emerson = new Character("Emerson", "Marks", false, 40, 18, 12, 30, "Security Access");
   Character Erin = new Character("Erin","Pointspear",true,10, 45, 30, 15, ""); 
