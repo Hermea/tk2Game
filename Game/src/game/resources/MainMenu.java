@@ -35,6 +35,7 @@ public class MainMenu extends JFrame {
 
 		enterNameButton.addActionListener(listener);
 		noButton.addActionListener(listener);
+		yesButton.addActionListener(listener);
 		continueButton.addActionListener(listener);
 		newGameButton.addActionListener(listener);
 		extrasButton.addActionListener(listener);
@@ -69,6 +70,12 @@ public class MainMenu extends JFrame {
 						+ "enter the following information. ");
 			} else if (e.getSource() == extrasButton) {
 				myOutput.setText("Mmmm Extras");
+				panel.remove(continueButton);
+				panel.remove(newGameButton);
+				panel.remove(extrasButton);
+				panel.remove(quitButton);
+				panel.repaint();
+				add(panel);
 			} else if (e.getSource() == quitButton) {
 				System.exit(0);
 			} else if (e.getSource() == noButton) {
@@ -81,7 +88,14 @@ public class MainMenu extends JFrame {
 				panel.remove(noButton);
 				panel.repaint();
 				add(panel);
-			} else if (e.getSource() == enterNameButton) {
+			} else if (e.getSource() == yesButton) {
+				myOutput.setText("Someday soon you'll be able to continue!");
+				panel.remove(yesButton);
+				panel.remove(noButton);
+				panel.repaint();
+				add(panel);
+			} 
+			else if (e.getSource() == enterNameButton) {
 				String getFirstNameText = firstName.getText();
 				String getLastNameText = lastName.getText();
 				if (getFirstNameText.isEmpty() || getFirstNameText.equals(null) || getLastNameText.isEmpty()
