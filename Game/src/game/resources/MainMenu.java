@@ -85,7 +85,7 @@ public class MainMenu extends JFrame {
 				String getFirstNameText = firstName.getText();
 				String getLastNameText = lastName.getText();
 				if (getFirstNameText.isEmpty() || getFirstNameText.equals(null) || getLastNameText.isEmpty()
-						|| getLastNameText.equals(null)) {
+						|| getLastNameText.equals(null) || getFirstNameText.contains(" ") || getLastNameText.contains(" ")) {
 					myOutput.setText("Invalid Name Provided. Please try again!");
 					add(panel);
 				} else {
