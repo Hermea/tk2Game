@@ -17,7 +17,6 @@ public class MainCharacterQuiz {
 		String q5 = "If you had to pick a weapon it would be\n";
 		String q6 = "The first thing I look for in a love interest is:\n";
 
-		// key 1 = cunning answer, 2 = intelligence, 3 = speed, 4 = strength
 		HashMap<String, String> q1Answers = new HashMap<String, String>();
 		q1Answers.put("1", "Over Socializing\n");
 		q1Answers.put("2", "Being a Workaholic and over achiever\n");

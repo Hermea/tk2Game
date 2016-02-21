@@ -1,6 +1,6 @@
 package game.resources;
 
-public class SideCharacter {
+public class Character {
 	private String firstName;
 	private String lastName;
 	private boolean gender;
@@ -11,7 +11,7 @@ public class SideCharacter {
 	private int speed;
 	private String specialAbility;
 
-	public SideCharacter(String firstName, String lastName, boolean gender, int strength, int cunning, int intellect,
+	public Character(String firstName, String lastName, boolean gender, int strength, int cunning, int intellect,
 			int speed, String specialAbility) {
 		setFirstName(firstName);
 		setLastName(lastName);
