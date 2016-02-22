@@ -96,4 +96,11 @@ public class Character {
 			this.specialAbility = specialAbility;
 	}
 
+	@Override
+	public String toString() {
+		return "Character [firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", strength="
+				+ strength + ", cunning=" + cunning + ", intellect=" + intellect + ", affection=" + affection
+				+ ", speed=" + speed + ", specialAbility=" + specialAbility + "]";
+	}
+
 }

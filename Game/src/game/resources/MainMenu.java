@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,7 +26,9 @@ public class MainMenu extends JFrame {
 	private JTextField lastName = new JTextField(20);
 	private JLabel myOutput = new JLabel();
 	private JPanel panel = new JPanel();
-	private Character main;
+	private JTextField textField = new JTextField();
+	private JComboBox comboBox;
+	private Character main = new Character("", "", true, 10, 10, 10, 10, "Main");
 	private ButtonListener listener = new ButtonListener();
 	private MainCharacterQuiz quiz = new MainCharacterQuiz();
 
@@ -65,6 +68,10 @@ public class MainMenu extends JFrame {
 				panel.remove(newGameButton);
 				panel.remove(extrasButton);
 				panel.remove(quitButton);
+				String[] options = { "Male", "Female" };
+				comboBox = new JComboBox(options);
+				panel.add(textField);
+				panel.add(comboBox);
 				panel.add(enterNameButton);
 				panel.add(firstName);
 				panel.add(lastName);
@@ -98,17 +105,22 @@ public class MainMenu extends JFrame {
 				panel.remove(noButton);
 				panel.repaint();
 				add(panel);
-			} 
-			else if (e.getSource() == enterNameButton) {
+			} else if (e.getSource() == enterNameButton) {
 				String getFirstNameText = firstName.getText();
 				String getLastNameText = lastName.getText();
+				boolean gender;
 				if (getFirstNameText.isEmpty() || getFirstNameText.equals(null) || getLastNameText.isEmpty()
-						|| getLastNameText.equals(null) || getFirstNameText.contains(" ") || getLastNameText.contains(" ")) {
+						|| getLastNameText.equals(null) || getFirstNameText.contains(" ")
+						|| getLastNameText.contains(" ")) {
 					myOutput.setText("Invalid Name Provided. Please try again!");
 					add(panel);
 				} else {
-					main = new Character(getFirstNameText, getLastNameText, true, 10, 10, 10, 10, "Main");
-					myOutput.setText(quiz.getCharacterQuiz().toString());
+					main.setFirstName(getFirstNameText);
+					main.setLastName(getLastNameText);
+					if (comboBox.getSelectedItem().equals("Male")) {
+						main.isFemale(false);
+					}
+					myOutput.setText(main.toString());					panel.remove(comboBox);
 					panel.remove(enterNameButton);
 					panel.remove(firstName);
 					panel.remove(lastName);
