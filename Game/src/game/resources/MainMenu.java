@@ -108,7 +108,6 @@ public class MainMenu extends JFrame {
 			} else if (e.getSource() == enterNameButton) {
 				String getFirstNameText = firstName.getText();
 				String getLastNameText = lastName.getText();
-				boolean gender;
 				if (getFirstNameText.isEmpty() || getFirstNameText.equals(null) || getLastNameText.isEmpty()
 						|| getLastNameText.equals(null) || getFirstNameText.contains(" ")
 						|| getLastNameText.contains(" ")) {
@@ -120,7 +119,8 @@ public class MainMenu extends JFrame {
 					if (comboBox.getSelectedItem().equals("Male")) {
 						main.isFemale(false);
 					}
-					myOutput.setText(main.toString());					panel.remove(comboBox);
+					myOutput.setText(main.toString());					
+					panel.remove(comboBox);
 					panel.remove(enterNameButton);
 					panel.remove(firstName);
 					panel.remove(lastName);
