@@ -29,36 +29,36 @@ public class MainCharacterQuiz {
 		HashMap<String, String> q2Answers = new HashMap<String, String>();
 		q2Answers.put("1", "Spit in the man’s face\n");
 		q2Answers.put("2", "Beg for your life\n");
-		q2Answers.put("3", "Try to break your restraints\n");
-		q2Answers.put("4", "Attempt to knock over the chair to release yourself\n");
+		q2Answers.put("3", "Attempt to knock over the chair to release yourself\n");
+		q2Answers.put("4", "Try to break your restraints\n");
 		QuizQuestions quiz2 = new QuizQuestions(q2, q2Answers);
 
 		HashMap<String, String> q3Answers = new HashMap<String, String>();
-		q3Answers.put("1", "Analyze their situation and come up with possible solutions\n");
-		q3Answers.put("2", "Tell them that though things are bad now, they will improve if they just persevere\n");
+		q3Answers.put("1", "Let that person know that no matter what you will be there for them.\n");
+		q3Answers.put("2", "Analyze their situation and come up with possible solutions\n");
 		q3Answers.put("3", "Come up with a short term solution to make things a little bit better for them in the meantime.\n");
-		q3Answers.put("4", "Let that person know that no matter what you will be there for them.\n");
+		q3Answers.put("4", "Tell them that though things are bad now, they will improve if they just persevere\n");
 		QuizQuestions quiz3 = new QuizQuestions(q3, q3Answers);
 
 		HashMap<String, String> q4Answers = new HashMap<String, String>();
-		q2Answers.put("1", "Gold\n");
-		q2Answers.put("2", "Blue\n");
-		q2Answers.put("3", "Green\n");
-		q2Answers.put("4", "Red\n");
+		q4Answers.put("1", "Gold\n");
+		q4Answers.put("2", "Blue\n");
+		q4Answers.put("3", "Green\n");
+		q4Answers.put("4", "Red\n");
 		QuizQuestions quiz4 = new QuizQuestions(q4, q4Answers);
 
 		HashMap<String, String> q5Answers = new HashMap<String, String>();
-		q2Answers.put("1", "Sword or Knives\n");
-		q2Answers.put("2", "Bow and Arrows\n");
-		q2Answers.put("3", "Gun\n");
-		q2Answers.put("4", "My fists\n");
+		q5Answers.put("1", "Sword or Knives\n");
+		q5Answers.put("2", "Bow and Arrows\n");
+		q5Answers.put("3", "Gun\n");
+		q5Answers.put("4", "My fists\n");
 		QuizQuestions quiz5 = new QuizQuestions(q5, q5Answers);
 
 		HashMap<String, String> q6Answers = new HashMap<String, String>();
-		q2Answers.put("1", "A witty person who I can laugh with\n");
-		q2Answers.put("2", "Someone who is stable and is able to support me\n");
-		q2Answers.put("3", "Anyone who instantly clicks with my awesome personality\n");
-		q2Answers.put("4", "Strong Arms to hold me tight\n");
+		q6Answers.put("1", "A witty person who I can laugh with\n");
+		q6Answers.put("2", "Someone who is stable and is able to support me\n");
+		q6Answers.put("3", "Anyone who instantly clicks with my awesome personality\n");
+		q6Answers.put("4", "Strong Arms to hold me tight\n");
 		QuizQuestions quiz6 = new QuizQuestions(q6, q6Answers);
 
 		ArrayList<Object> questions = new ArrayList<Object>();
@@ -68,7 +68,6 @@ public class MainCharacterQuiz {
 		questions.add(quiz4);
 		questions.add(quiz5);
 		questions.add(quiz6);
-		questions.iterator();
 		setCharacterQuiz(questions);
 	}
 
