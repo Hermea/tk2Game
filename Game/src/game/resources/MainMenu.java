@@ -132,51 +132,36 @@ public class MainMenu extends JFrame {
 						main.isFemale(false);
 					}
 					QuizQuestions quiz1 = (QuizQuestions) quiz.getCharacterQuiz().get(0);
-					String question1 = quiz1.getQuestionText();
-					String answer1 = quiz1.getAnswerOptions().get("1");
-					String answer2 = quiz1.getAnswerOptions().get("2");
-					String answer3 = quiz1.getAnswerOptions().get("3");
-					String answer4 = quiz1.getAnswerOptions().get("4");
 					QuizQuestions quiz2 = (QuizQuestions) quiz.getCharacterQuiz().get(1);
-					String question2 = quiz2.getQuestionText();
-					String answer21 = quiz2.getAnswerOptions().get("1");
-					String answer22 = quiz2.getAnswerOptions().get("2");
-					String answer23 = quiz2.getAnswerOptions().get("3");
-					String answer24 = quiz2.getAnswerOptions().get("4");
 					QuizQuestions quiz3 = (QuizQuestions) quiz.getCharacterQuiz().get(2);
-					String question3 = quiz3.getQuestionText();
-					String answer31 = quiz3.getAnswerOptions().get("1");
-					String answer32 = quiz3.getAnswerOptions().get("2");
-					String answer33 = quiz3.getAnswerOptions().get("3");
-					String answer34 = quiz3.getAnswerOptions().get("4");
 					QuizQuestions quiz4 = (QuizQuestions) quiz.getCharacterQuiz().get(3);
-					String question4 = quiz4.getQuestionText();
-					String answer41 = quiz4.getAnswerOptions().get("1");
-					String answer42 = quiz4.getAnswerOptions().get("2");
-					String answer43 = quiz4.getAnswerOptions().get("3");
-					String answer44 = quiz4.getAnswerOptions().get("4");
 					QuizQuestions quiz5 = (QuizQuestions) quiz.getCharacterQuiz().get(4);
-					String question5 = quiz5.getQuestionText();
-					String answer51 = quiz5.getAnswerOptions().get("1");
-					String answer52 = quiz5.getAnswerOptions().get("2");
-					String answer53 = quiz5.getAnswerOptions().get("3");
-					String answer54 = quiz5.getAnswerOptions().get("4");
-					myOutput.setText("<html>" + question1 + "<br/>1: " + answer1 + "<br/>2: " + answer2 + "<br/>3: "
-							+ answer3 + "<br/>4: " + answer4 + "</html>");
+					myOutput.setText("<html>" + quiz1.getQuestionText() + "<br/>1: " + quiz1.getAnswerOptions().get("1")
+							+ "<br/>2: " + quiz1.getAnswerOptions().get("2") + "<br/>3: "
+							+ quiz1.getAnswerOptions().get("3") + "<br/>4: " + quiz1.getAnswerOptions().get("4")
+							+ "</html>");
 					String[] options = { "1", "2", "3", "4" };
 					question1Box = new JComboBox(options);
 					question2Box = new JComboBox(options);
 					question3Box = new JComboBox(options);
 					question4Box = new JComboBox(options);
 					question5Box = new JComboBox(options);
-					myOutput2.setText("<html>" + question2 + "<br/>1: " + answer21 + "<br/>2: " + answer22 + "<br/>3: "
-							+ answer23 + "<br/>4: " + answer24 + "</html>");
-					myOutput3.setText("<html>" + question3 + "<br/>1: " + answer31 + "<br/>2: " + answer32 + "<br/>3: "
-							+ answer33 + "<br/>4: " + answer34 + "</html>");
-					myOutput4.setText("<html>" + question4 + "<br/>1: " + answer41 + "<br/>2: " + answer42 + "<br/>3: "
-							+ answer43 + "<br/>4: " + answer44 + "</html>");
-					myOutput5.setText("<html>" + question5 + "<br/>1: " + answer51 + "<br/>2: " + answer52 + "<br/>3: "
-							+ answer53 + "<br/>4: " + answer54 + "</html>");
+					myOutput2.setText("<html>" + quiz2.getQuestionText() + "<br/>1: " + quiz2.getAnswerOptions().get("1")
+							+ "<br/>2: " + quiz2.getAnswerOptions().get("2") + "<br/>3: "
+							+ quiz2.getAnswerOptions().get("3") + "<br/>4: " + quiz2.getAnswerOptions().get("4")
+							+ "</html>");
+					myOutput3.setText("<html>" + quiz3.getQuestionText() + "<br/>1: " + quiz3.getAnswerOptions().get("1")
+							+ "<br/>2: " + quiz3.getAnswerOptions().get("2") + "<br/>3: "
+							+ quiz3.getAnswerOptions().get("3") + "<br/>4: " + quiz3.getAnswerOptions().get("4")
+							+ "</html>");
+					myOutput4.setText("<html>" + quiz4.getQuestionText() + "<br/>1: " + quiz4.getAnswerOptions().get("1")
+							+ "<br/>2: " + quiz4.getAnswerOptions().get("2") + "<br/>3: "
+							+ quiz4.getAnswerOptions().get("3") + "<br/>4: " + quiz4.getAnswerOptions().get("4")
+							+ "</html>");
+					myOutput5.setText("<html>" + quiz5.getQuestionText() + "<br/>1: " + quiz5.getAnswerOptions().get("1")
+							+ "<br/>2: " + quiz5.getAnswerOptions().get("2") + "<br/>3: "
+							+ quiz5.getAnswerOptions().get("3") + "<br/>4: " + quiz5.getAnswerOptions().get("4")
+							+ "</html>");
 					panel.add(question1Box);
 					panel.add(myOutput2);
 					panel.add(question2Box);
@@ -194,66 +179,50 @@ public class MainMenu extends JFrame {
 					panel.repaint();
 					add(panel);
 				}
-			}
-			else if (e.getSource() == submitQuiz) {
+			} else if (e.getSource() == submitQuiz) {
 				if (question1Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question1Box.getSelectedItem().equals("2")) {
+				} else if (question1Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question1Box.getSelectedItem().equals("3")) {
+				} else if (question1Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question1Box.getSelectedItem().equals("4")) {
+				} else if (question1Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question2Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question2Box.getSelectedItem().equals("2")) {
+				} else if (question2Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question2Box.getSelectedItem().equals("3")) {
+				} else if (question2Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question2Box.getSelectedItem().equals("4")) {
+				} else if (question2Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question3Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question3Box.getSelectedItem().equals("2")) {
+				} else if (question3Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question3Box.getSelectedItem().equals("3")) {
+				} else if (question3Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question3Box.getSelectedItem().equals("4")) {
+				} else if (question3Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question4Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question4Box.getSelectedItem().equals("2")) {
+				} else if (question4Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question4Box.getSelectedItem().equals("3")) {
+				} else if (question4Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question4Box.getSelectedItem().equals("4")) {
+				} else if (question4Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question5Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question5Box.getSelectedItem().equals("2")) {
+				} else if (question5Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question5Box.getSelectedItem().equals("3")) {
+				} else if (question5Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question5Box.getSelectedItem().equals("4")) {
+				} else if (question5Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				myOutput.setText(main.toString());
