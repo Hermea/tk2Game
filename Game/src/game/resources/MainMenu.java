@@ -1,10 +1,11 @@
 package game.resources;
 
-import java.awt.BorderLayout;
+
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -12,13 +13,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+//This is a GUI
 public class MainMenu extends JFrame {
-
-	private JButton continueButton = new JButton("Continue");
+	/*These are here as they are used across several classes and 
+	 are private and so cannot be placed within main menu public*/
+	/*private JButton continueButton = new JButton("Continue");
 	private JButton newGameButton = new JButton("New Game");
 	private JButton extrasButton = new JButton("Extras");
-	private JButton quitButton = new JButton("Exit");
+	private JButton quitButton = new JButton("Exit");*/
 	private JButton yesButton = new JButton("Yes");
 	private JButton noButton = new JButton("No");
 	private JButton enterNameButton = new JButton("Next");
@@ -30,8 +32,12 @@ public class MainMenu extends JFrame {
 	private JLabel myOutput3 = new JLabel();
 	private JLabel myOutput4 = new JLabel();
 	private JLabel myOutput5 = new JLabel();
-	private JPanel panel = new JPanel();
+	private JPanel initialButtonPanel = new JPanel();        //panel
 	private JTextField textField = new JTextField();
+	
+	
+	/*
+	//quiz related
 	private JComboBox comboBox;
 	private JComboBox question1Box;
 	private JComboBox question2Box;
@@ -43,14 +49,25 @@ public class MainMenu extends JFrame {
 	private MainCharacterQuiz quiz = new MainCharacterQuiz();
 	final String html1 = "<html><body style='width: ";
 	final String html2 = "px'>";
-
+*/
 	public MainMenu() {
-		panel.add(myOutput);
-		panel.add(continueButton);
-		panel.add(newGameButton);
-		panel.add(extrasButton);
-		panel.add(quitButton);
-		add(panel);
+	//Create instance 
+	ButtonMenuPanel ButtonPanel = new ButtonMenuPanel();
+	//insert panel
+	add(ButtonPanel);
+	//set layout
+	ButtonPanel.setLayout(new BoxLayout(ButtonPanel, BoxLayout.Y_AXIS));
+	}
+		/*
+		//add buttons to panel
+		add(initialButtonPanel);
+		initialButtonPanel.add(myOutput);
+		initialButtonPanel.add(continueButton);
+		initialButtonPanel.add(newGameButton);
+		initialButtonPanel.add(extrasButton);
+		initialButtonPanel.add(quitButton);
+		
+		//add button listeners 
 		submitQuiz.addActionListener(listener);
 		enterNameButton.addActionListener(listener);
 		noButton.addActionListener(listener);
@@ -60,63 +77,65 @@ public class MainMenu extends JFrame {
 		extrasButton.addActionListener(listener);
 		quitButton.addActionListener(listener);
 	}
-
+//really contains whole of the quiz
 	class ButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
+			//refactor, remove panel and not buttons...
 			if (e.getSource() == continueButton) {
-				panel.remove(continueButton);
-				panel.remove(newGameButton);
-				panel.remove(extrasButton);
-				panel.remove(quitButton);
-				panel.add(yesButton);
-				panel.add(noButton);
-				panel.repaint();
-				add(panel);
+				initialButtonPanel.remove(continueButton);
+				initialButtonPanel.remove(newGameButton);
+				initialButtonPanel.remove(extrasButton);
+				initialButtonPanel.remove(quitButton);
+				initialButtonPanel.add(yesButton);
+				initialButtonPanel.add(noButton);
+				initialButtonPanel.repaint();
+				add(initialButtonPanel);
 				myOutput.setText("Load Previous Save Data?");
 			} else if (e.getSource() == newGameButton) {
-				panel.remove(continueButton);
-				panel.remove(newGameButton);
-				panel.remove(extrasButton);
-				panel.remove(quitButton);
+				initialButtonPanel.remove(continueButton);
+				initialButtonPanel.remove(newGameButton);
+				initialButtonPanel.remove(extrasButton);
+				initialButtonPanel.remove(quitButton);
 				String[] options = { "Male", "Female" };
 				comboBox = new JComboBox(options);
-				panel.add(textField);
-				panel.add(comboBox);
-				panel.add(enterNameButton);
-				panel.add(firstName);
-				panel.add(lastName);
-				panel.repaint();
-				add(panel);
+				initialButtonPanel.add(textField);
+				initialButtonPanel.add(comboBox);
+				initialButtonPanel.add(enterNameButton);
+				initialButtonPanel.add(firstName);
+				initialButtonPanel.add(lastName);
+				initialButtonPanel.repaint();
+				add(initialButtonPanel);
 				myOutput.setText("Welcome to (Insert Game Name Here)! " + "Before we get started with the game please "
 						+ "enter the following information. ");
 			} else if (e.getSource() == extrasButton) {
 				myOutput.setText("Mmmm Extras");
-				panel.remove(continueButton);
-				panel.remove(newGameButton);
-				panel.remove(extrasButton);
-				panel.remove(quitButton);
-				panel.repaint();
-				add(panel);
+				initialButtonPanel.remove(continueButton);
+				initialButtonPanel.remove(newGameButton);
+				initialButtonPanel.remove(extrasButton);
+				initialButtonPanel.remove(quitButton);
+				initialButtonPanel.repaint();
+				add(initialButtonPanel);
 			} else if (e.getSource() == quitButton) {
 				System.exit(0);
 			} else if (e.getSource() == noButton) {
 				myOutput.setText("");
-				panel.add(continueButton);
-				panel.add(newGameButton);
-				panel.add(extrasButton);
-				panel.add(quitButton);
-				panel.remove(yesButton);
-				panel.remove(noButton);
-				panel.repaint();
-				add(panel);
+				initialButtonPanel.add(continueButton);
+				initialButtonPanel.add(newGameButton);
+				initialButtonPanel.add(extrasButton);
+				initialButtonPanel.add(quitButton);
+				initialButtonPanel.remove(yesButton);
+				initialButtonPanel.remove(noButton);
+				initialButtonPanel.repaint();
+				add(initialButtonPanel);
 			} else if (e.getSource() == yesButton) {
 				myOutput.setText("Someday soon you'll be able to continue!");
-				panel.remove(yesButton);
-				panel.remove(noButton);
-				panel.repaint();
-				add(panel);
+				initialButtonPanel.remove(yesButton);
+				initialButtonPanel.remove(noButton);
+				initialButtonPanel.repaint();
+				add(initialButtonPanel);
 			} else if (e.getSource() == enterNameButton) {
 				String getFirstNameText = firstName.getText();
 				String getLastNameText = lastName.getText();
@@ -124,7 +143,7 @@ public class MainMenu extends JFrame {
 						|| getLastNameText.equals(null) || getFirstNameText.contains(" ")
 						|| getLastNameText.contains(" ")) {
 					myOutput.setText("Invalid Name Provided. Please try again!");
-					add(panel);
+					add(initialButtonPanel);
 				} else {
 					main.setFirstName(getFirstNameText);
 					main.setLastName(getLastNameText);
@@ -177,22 +196,22 @@ public class MainMenu extends JFrame {
 							+ answer43 + "<br/>4: " + answer44 + "</html>");
 					myOutput5.setText("<html>" + question5 + "<br/>1: " + answer51 + "<br/>2: " + answer52 + "<br/>3: "
 							+ answer53 + "<br/>4: " + answer54 + "</html>");
-					panel.add(question1Box);
-					panel.add(myOutput2);
-					panel.add(question2Box);
-					panel.add(myOutput3);
-					panel.add(question3Box);
-					panel.add(myOutput4);
-					panel.add(question4Box);
-					panel.add(myOutput5);
-					panel.add(question5Box);
-					panel.add(submitQuiz);
-					panel.remove(comboBox);
-					panel.remove(enterNameButton);
-					panel.remove(firstName);
-					panel.remove(lastName);
-					panel.repaint();
-					add(panel);
+					initialButtonPanel.add(question1Box);
+					initialButtonPanel.add(myOutput2);
+					initialButtonPanel.add(question2Box);
+					initialButtonPanel.add(myOutput3);
+					initialButtonPanel.add(question3Box);
+					initialButtonPanel.add(myOutput4);
+					initialButtonPanel.add(question4Box);
+					initialButtonPanel.add(myOutput5);
+					initialButtonPanel.add(question5Box);
+					initialButtonPanel.add(submitQuiz);
+					initialButtonPanel.remove(comboBox);
+					initialButtonPanel.remove(enterNameButton);
+					initialButtonPanel.remove(firstName);
+					initialButtonPanel.remove(lastName);
+					initialButtonPanel.repaint();
+					add(initialButtonPanel);
 				}
 			}
 			else if (e.getSource() == submitQuiz) {
@@ -257,21 +276,21 @@ public class MainMenu extends JFrame {
 					main.setCunning(main.getStrength() + 10);
 				}
 				myOutput.setText(main.toString());
-				panel.remove(question1Box);
-				panel.remove(myOutput2);
-				panel.remove(question2Box);
-				panel.remove(myOutput3);
-				panel.remove(question3Box);
-				panel.remove(myOutput4);
-				panel.remove(question4Box);
-				panel.remove(myOutput5);
-				panel.remove(question5Box);
-				panel.remove(submitQuiz);
-				panel.repaint();
-				add(panel);
+				initialButtonPanel.remove(question1Box);
+				initialButtonPanel.remove(myOutput2);
+				initialButtonPanel.remove(question2Box);
+				initialButtonPanel.remove(myOutput3);
+				initialButtonPanel.remove(question3Box);
+				initialButtonPanel.remove(myOutput4);
+				initialButtonPanel.remove(question4Box);
+				initialButtonPanel.remove(myOutput5);
+				initialButtonPanel.remove(question5Box);
+				initialButtonPanel.remove(submitQuiz);
+				initialButtonPanel.repaint();
+				add(initialButtonPanel);
 			}
-		}
+		}*/
 
-	}
+	//}
 
 }
