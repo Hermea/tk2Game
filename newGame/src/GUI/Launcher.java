@@ -26,7 +26,7 @@ public class Launcher {
         MainMenu.setVisible(true);
         MainMenu.setLocationRelativeTo(null);//center frame on screen
         MainMenu.setResizable(false);
-        ImageIcon icon = new ImageIcon("ImageFiles/Icon.png");
+        ImageIcon icon = new ImageIcon("ImageFiles/Icon.png");//create icon
         MainMenu.setIconImage(icon.getImage());
         
        
