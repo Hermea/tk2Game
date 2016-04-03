@@ -1,7 +1,10 @@
 package GUI;
 
+import java.awt.Image;
+import java.io.File;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class Launcher {
@@ -20,6 +23,9 @@ public class Launcher {
         MainMenu.setVisible(true);
         MainMenu.setLocationRelativeTo(null);//center frame on screen
         MainMenu.setResizable(false);
+        ImageIcon icon = new ImageIcon("ImageFiles/Icon.png");
+        MainMenu.setIconImage(icon.getImage());
+        
        
      	
  }
