@@ -7,6 +7,8 @@ import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import menu.Character;
+import menu.MainMenu;
 
 public class Launcher {
 
