@@ -1,32 +1,29 @@
-package GUI;
+package menu;
 
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
 import quiz.MainCharacterQuiz;
+import quiz.QuizPanel;
 import quiz.QuizQuestions;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 //This is a GUI
 public class MainMenu extends JFrame {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7909135968090926261L;
 	/*
 	 * These are here as they are used across several classes and are private
 	 * and so cannot be placed within main menu public
 	 */
-	private JButton continueButton = new JButton("Continue");
-	private JButton newGameButton = new JButton("New Game");
-	private JButton extrasButton = new JButton("Extras");
-	private JButton quitButton = new JButton("Exit");
+	private ContinueMenu continueMenu = new ContinueMenu();
 	private JButton yesButton = new JButton("Yes");
 	private JButton noButton = new JButton("No");
 	private JButton enterNameButton = new JButton("Next");
@@ -40,8 +37,8 @@ public class MainMenu extends JFrame {
 	private JLabel myOutput5 = new JLabel();
 	private ButtonListener listener = new ButtonListener();
 	private JPanel initialButtonPanel = new JPanel(); // panel
-	private JTextField textField = new JTextField();
 	private MainMenuPanel mmPanel = new MainMenuPanel();
+	private QuizPanel quizPanel = new QuizPanel();
 
 	// quiz related
 	private JComboBox comboBox;
@@ -62,12 +59,12 @@ public class MainMenu extends JFrame {
 		mmPanel.extrasButton.addActionListener(listener);
 		mmPanel.newGameButton.addActionListener(listener);
 		mmPanel.quitButton.addActionListener(listener);
+		continueMenu.jButton4.addActionListener(listener);
 		add(mmPanel);
-		
 
 		// add button listeners
 		/*
-		 
+		 * 
 		 * enterNameButton.addActionListener(listener);
 		 * noButton.addActionListener(listener);
 		 * yesButton.addActionListener(listener);
@@ -77,33 +74,20 @@ public class MainMenu extends JFrame {
 		 * quitButton.addActionListener(listener);
 		 */
 	}
+
 	class ButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			//refactor, remove panel and not buttons...
+
+			// refactor, remove panel and not buttons...
 			if (e.getSource() == mmPanel.continueButton) {
-				/*
-				initialButtonPanel.remove(continueButton);
-				initialButtonPanel.remove(newGameButton);
-				initialButtonPanel.remove(extrasButton);
-				initialButtonPanel.remove(quitButton);
-				initialButtonPanel.add(yesButton);
-				initialButtonPanel.add(noButton);
-				initialButtonPanel.repaint();
-				add(initialButtonPanel);
-				myOutput.setText("Load Previous Save Data?");
-				*/
-				ContinueMenu test = new ContinueMenu();
 				remove(mmPanel);
-				add(test);
+				add(continueMenu);
+				repaint();
 				revalidate();
 			} else if (e.getSource() == mmPanel.newGameButton) {
-				initialButtonPanel.remove(continueButton);
-				initialButtonPanel.remove(newGameButton);
-				initialButtonPanel.remove(extrasButton);
-				initialButtonPanel.remove(quitButton);
+				/*
 				String[] options = { "Male", "Female" };
 				comboBox = new JComboBox(options);
 				initialButtonPanel.add(textField);
@@ -115,26 +99,24 @@ public class MainMenu extends JFrame {
 				add(initialButtonPanel);
 				myOutput.setText("Welcome to (Insert Game Name Here)! " + "Before we get started with the game please "
 						+ "enter the following information. ");
+						*/
+				remove(mmPanel);
+				add(quizPanel);
+				repaint();
+				revalidate();
 			} else if (e.getSource() == mmPanel.extrasButton) {
-				myOutput.setText("Mmmm Extras");
-				initialButtonPanel.remove(continueButton);
-				initialButtonPanel.remove(newGameButton);
-				initialButtonPanel.remove(extrasButton);
-				initialButtonPanel.remove(quitButton);
-				initialButtonPanel.repaint();
-				add(initialButtonPanel);
+				GameplayMenu gameplayMenu = new GameplayMenu();
+				remove(mmPanel);
+				add(gameplayMenu);
+				repaint();
+				revalidate();
 			} else if (e.getSource() == mmPanel.quitButton) {
 				System.exit(0);
-			} else if (e.getSource() == noButton) {
-				myOutput.setText("");
-				initialButtonPanel.add(continueButton);
-				initialButtonPanel.add(newGameButton);
-				initialButtonPanel.add(extrasButton);
-				initialButtonPanel.add(quitButton);
-				initialButtonPanel.remove(yesButton);
-				initialButtonPanel.remove(noButton);
-				initialButtonPanel.repaint();
-				add(initialButtonPanel);
+			} else if (e.getSource() == continueMenu.jButton4) {
+				remove(continueMenu);
+				add(mmPanel);
+				repaint();
+				revalidate();
 			} else if (e.getSource() == yesButton) {
 				myOutput.setText("Someday soon you'll be able to continue!");
 				initialButtonPanel.remove(yesButton);
@@ -218,66 +200,50 @@ public class MainMenu extends JFrame {
 					initialButtonPanel.repaint();
 					add(initialButtonPanel);
 				}
-			}
-			else if (e.getSource() == submitQuiz) {
+			} else if (e.getSource() == submitQuiz) {
 				if (question1Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question1Box.getSelectedItem().equals("2")) {
+				} else if (question1Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question1Box.getSelectedItem().equals("3")) {
+				} else if (question1Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question1Box.getSelectedItem().equals("4")) {
+				} else if (question1Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question2Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question2Box.getSelectedItem().equals("2")) {
+				} else if (question2Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question2Box.getSelectedItem().equals("3")) {
+				} else if (question2Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question2Box.getSelectedItem().equals("4")) {
+				} else if (question2Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question3Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question3Box.getSelectedItem().equals("2")) {
+				} else if (question3Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question3Box.getSelectedItem().equals("3")) {
+				} else if (question3Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question3Box.getSelectedItem().equals("4")) {
+				} else if (question3Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question4Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question4Box.getSelectedItem().equals("2")) {
+				} else if (question4Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question4Box.getSelectedItem().equals("3")) {
+				} else if (question4Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question4Box.getSelectedItem().equals("4")) {
+				} else if (question4Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				if (question5Box.getSelectedItem().equals("1")) {
 					main.setCunning(main.getCunning() + 10);
-				}
-				else if (question5Box.getSelectedItem().equals("2")) {
+				} else if (question5Box.getSelectedItem().equals("2")) {
 					main.setIntellect(main.getIntellect() + 10);
-				}
-				else if (question5Box.getSelectedItem().equals("3")) {
+				} else if (question5Box.getSelectedItem().equals("3")) {
 					main.setSpeed(main.getSpeed() + 10);
-				}
-				else if (question5Box.getSelectedItem().equals("4")) {
+				} else if (question5Box.getSelectedItem().equals("4")) {
 					main.setCunning(main.getStrength() + 10);
 				}
 				myOutput.setText(main.toString());

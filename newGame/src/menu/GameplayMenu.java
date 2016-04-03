@@ -1,11 +1,11 @@
-package GUI;
+package menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import music.MusicPlayer;
 
 //This is a GUI
-public class ContinueMenu extends javax.swing.JPanel {
+public class GameplayMenu extends javax.swing.JPanel {
 
 	boolean musicPlaying = true;
 
@@ -15,7 +15,7 @@ public class ContinueMenu extends javax.swing.JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ContinueMenu() {
+	public GameplayMenu() {
 		initComponents();
 		music.playSound("MusicFiles/sound.wav");
 	}
@@ -56,9 +56,9 @@ public class ContinueMenu extends javax.swing.JPanel {
 		});
 		add(jButton1);
 
-		jButton1.setBounds(670, 40, 61, 25);
+		jButton1.setBounds(670, 50, 61, 25);
 
-		jLabel1.setIcon(new javax.swing.ImageIcon("target/PC1280x1024.jpg"));
+		jLabel1.setIcon(new javax.swing.ImageIcon("ImageFiles/cover.jpg"));
 		jLabel1.setMaximumSize(new java.awt.Dimension(900, 720));
 		jLabel1.setMinimumSize(new java.awt.Dimension(900, 720));
 		add(jLabel1);

@@ -1,4 +1,4 @@
-package GUI;
+package menu;
 
 public class Character {
 	private String firstName;
