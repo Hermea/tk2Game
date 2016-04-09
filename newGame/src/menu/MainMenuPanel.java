@@ -14,10 +14,6 @@ public class MainMenuPanel extends javax.swing.JPanel {
 	final JButton quitButton = new JButton("Exit");
 	private JLabel mainMenuImage = new JLabel();
 
-	// quiz related
-	final String html1 = "<html><body style='width: ";
-	final String html2 = "px'>";
-
 	private static final long serialVersionUID = 1L;
 
 	// Starts new form for page
