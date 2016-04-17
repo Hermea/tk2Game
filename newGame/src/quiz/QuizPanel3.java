@@ -15,10 +15,10 @@ public class QuizPanel3 extends javax.swing.JPanel {
 	 * 
 	 */
 
-	public final JButton answer1 = new JButton("Let that person know that no matter what you will be there for them.");
-	public final JButton answer2 = new JButton("Analyze their situation and come up with possible solutions");
-	public final JButton answer3 = new JButton("Come up with a short term solution to make things a little bit better for them in the meantime.");
-	public final JButton answer4 = new JButton("Tell them that though things are bad now, they will improve if they just persevere");
+	public final JButton answer1 = new JButton();
+	public final JButton answer2 = new JButton();
+	public final JButton answer3 = new JButton();
+	public final JButton answer4 = new JButton();
 	private JLabel mainMenuImage = new JLabel();
 
 	private static final long serialVersionUID = 1L;
@@ -38,14 +38,9 @@ public class QuizPanel3 extends javax.swing.JPanel {
 		setLayout(null);
 		// buttons set to private must sit outside of panel definition.
 
-		String q1 = "Someone close to you is having a difficult time.\n" + " What would you do to help them out?";
-	 	
-	       answer1.setLayout(new BorderLayout());
-		   JLabel label1 = new JLabel("Someone close to you is having a difficult time.");
-		   JLabel label2 = new JLabel("What would you do to help them out?");
-		   answer1.add(BorderLayout.NORTH,label1);
-		   answer1.add(BorderLayout.SOUTH,label2);
-		
+		String q1 = "Someone close to you is having a difficult time.";
+		String q2 = " What would you do to help them out?";
+
 		// add buttons to panel
 		add(answer1);
 		add(answer2);
@@ -54,48 +49,99 @@ public class QuizPanel3 extends javax.swing.JPanel {
 		// style buttons
 		LoadFont walkway = new LoadFont();
 		JLabel questions = new JLabel(q1);
-		questions.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(2, 40));
-		questions.setForeground(new java.awt.Color(255,0,0));
+		questions.setLayout(new BorderLayout());
+		questions.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(2, 30));
+		questions.setForeground(new java.awt.Color(255, 0, 0));
 		questions.setBounds(150, 30, 680, 50);
 		add(questions);
+
+		JLabel questions1 = new JLabel(q2);
+		questions1.setLayout(new BorderLayout());
+		questions1.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(2, 30));
+		questions1.setForeground(new java.awt.Color(255, 0, 0));
+		questions1.setBounds(150, 60, 680, 50);
+		add(questions1);
+
+		answer1.setLayout(new BorderLayout());
+		JLabel label1 = new JLabel("Let that person know that no matter what,");
+		label1.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label1.setForeground(new java.awt.Color(255, 0, 0));
+		JLabel label2 = new JLabel("you will be there for them.");
+		label2.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label2.setForeground(new java.awt.Color(255, 0, 0));
+		answer1.add(BorderLayout.NORTH, label1);
+		answer1.add(BorderLayout.SOUTH, label2);
 
 		answer1.setOpaque(false);
 		answer1.setContentAreaFilled(false);
 		answer1.setBorderPainted(false);
 		answer1.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
-		answer1.setBounds(150, 100, 680, 50);
+		answer1.setBounds(150, 120, 680, 55);
 		answer1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		answer1.setForeground(new java.awt.Color(255,0,0));
+		answer1.setForeground(new java.awt.Color(255, 0, 0));
+
+		answer2.setLayout(new BorderLayout());
+		JLabel label3 = new JLabel("Analyze their situation and come up with possible");
+		label3.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label3.setForeground(new java.awt.Color(255, 0, 0));
+		JLabel label4 = new JLabel("solutions.");
+		label4.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label4.setForeground(new java.awt.Color(255, 0, 0));
+		answer2.add(BorderLayout.NORTH, label3);
+		answer2.add(BorderLayout.SOUTH, label4);
+
 		answer2.setOpaque(false);
 		answer2.setContentAreaFilled(false);
 		answer2.setBorderPainted(false);
 		answer2.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
-		answer2.setBounds(150, 160, 680, 50);
+		answer2.setBounds(150, 180, 680, 55);
 		answer2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		answer2.setForeground(new java.awt.Color(255,0,0));
+		answer2.setForeground(new java.awt.Color(255, 0, 0));
 		answer3.setOpaque(false);
 		answer3.setContentAreaFilled(false);
 		answer3.setBorderPainted(false);
 		answer3.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
-		answer3.setBounds(150, 220, 680, 50);
+		answer3.setBounds(150, 240, 680, 55);
 		answer3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		answer3.setForeground(new java.awt.Color(255,0,0));
+		answer3.setForeground(new java.awt.Color(255, 0, 0));
+		
+		answer3.setLayout(new BorderLayout());
+		JLabel label5 = new JLabel("Come up with a short term solution to make things a");
+		label5.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label5.setForeground(new java.awt.Color(255, 0, 0));
+		JLabel label6 = new JLabel("little bit better for them in the meantime.");
+		label6.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label6.setForeground(new java.awt.Color(255, 0, 0));
+		answer3.add(BorderLayout.NORTH, label5);
+		answer3.add(BorderLayout.SOUTH, label6);
+		
 		answer4.setOpaque(false);
 		answer4.setContentAreaFilled(false);
 		answer4.setBorderPainted(false);
 		answer4.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
-		answer4.setBounds(150, 280, 800, 50);
+		answer4.setBounds(150, 300, 800, 55);
 		answer4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-		answer4.setForeground(new java.awt.Color(255,0,0));
+		answer4.setForeground(new java.awt.Color(255, 0, 0));
+		
+		answer4.setLayout(new BorderLayout());
+		JLabel label7 = new JLabel("Tell them that though things are bad now,");
+		label7.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label7.setForeground(new java.awt.Color(255, 0, 0));
+		JLabel label8 = new JLabel("they will improve if they just persevere.");
+		label8.setFont(walkway.callFont("FontFiles/walkway.ttf").deriveFont(1, 24));
+		label8.setForeground(new java.awt.Color(255, 0, 0));
+		answer4.add(BorderLayout.NORTH, label7);
+		answer4.add(BorderLayout.SOUTH, label8);
+		
 		// add image
 		Toolkit toolkit = Toolkit.getDefaultToolkit();
 		Image scaledImage = toolkit.getImage("ImageFiles/blood.jpg");
 		ImageIcon image = new ImageIcon(scaledImage.getScaledInstance(900, 720, Image.SCALE_DEFAULT));
 		mainMenuImage.setIcon(image);
-		
+
 		add(mainMenuImage);
 		mainMenuImage.setBounds(0, 0, 900, 720);
 
 	}// form finish
-	
+
 }// close class
