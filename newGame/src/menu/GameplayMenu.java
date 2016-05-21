@@ -2,12 +2,25 @@ package menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
 import music.MusicPlayer;
 
 //This is a GUI
 public class GameplayMenu extends javax.swing.JPanel {
 
 	boolean musicPlaying = true;
+
+	JButton nextButton = new JButton("Next");
+
+	int textIterator = 0;
+	int endLine = 3;
 
 	private MusicPlayer music = new MusicPlayer();
 	/**
@@ -37,11 +50,50 @@ public class GameplayMenu extends javax.swing.JPanel {
 
 		jButton1 = new javax.swing.JButton();
 		jLabel1 = new javax.swing.JLabel();
+		StringBuffer lineReader = new StringBuffer();
+
 		String bob = "What";
+		JLabel label2 = new JLabel();
 
 		setPreferredSize(new java.awt.Dimension(900, 720));
 
 		setLayout(null);
+
+		nextButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String fileName = "FontFiles/SampleText.txt";
+
+				// This will reference one line at a time
+				String line = null;
+
+				try {
+					// FileReader reads text files in the default encoding.
+					FileReader fileReader = new FileReader(fileName);
+
+					// Always wrap FileReader in BufferedReader.
+					BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+					for (int i = textIterator; i < textIterator + 1; i++) {
+						 line = bufferedReader.readLine();
+					     lineReader.append(line);
+					}
+
+					label2.setText(lineReader.toString());
+					label2.setBounds(200, 200, 920, 720);
+					// Always close files.
+					bufferedReader.close();
+					textIterator = textIterator + 1;
+				} catch (FileNotFoundException ex) {
+					System.out.println("Unable to open file '" + fileName + "'");
+				} catch (IOException ex) {
+					System.out.println("Error reading file '" + fileName + "'");
+					// Or we could just do this:
+					// ex.printStackTrace();
+				}
+			}
+		});
+
+		add(label2);
 
 		jButton1.setText("Mute");
 		jButton1.addActionListener(new ActionListener() {
@@ -58,6 +110,9 @@ public class GameplayMenu extends javax.swing.JPanel {
 		add(jButton1);
 
 		jButton1.setBounds(670, 50, 61, 25);
+		nextButton.setBounds(400, 600, 61, 54);
+
+		add(nextButton);
 
 		jLabel1.setIcon(new javax.swing.ImageIcon("ImageFiles/cover.jpg"));
 		jLabel1.setMaximumSize(new java.awt.Dimension(900, 720));
