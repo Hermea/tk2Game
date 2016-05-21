@@ -37,6 +37,7 @@ public class GameplayMenu extends javax.swing.JPanel {
 
 		jButton1 = new javax.swing.JButton();
 		jLabel1 = new javax.swing.JLabel();
+		String bob = "What";
 
 		setPreferredSize(new java.awt.Dimension(900, 720));
 
